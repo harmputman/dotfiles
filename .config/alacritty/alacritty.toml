@@ -9,6 +9,7 @@ import = [
 opacity = 0.85
 blur = true
 padding = { x = 10, y = 10 }
+dynamic_title = true
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font", style = "ExtraLight" }
