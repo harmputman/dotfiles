@@ -7,6 +7,7 @@ This directory contains the dotfiles for my system
 Ensure you have the following installed on your system
 
 - [JetBrainsMono Nerd Font](https://www.nerdfonts.com/font-downloads)
+- [Zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
 - [Git](https://git-scm.com/)
 - [Stow](https://www.gnu.org/software/stow/)
 
@@ -22,10 +23,10 @@ cd dotfiles
 then clone the zsh plugins
 
 ```bash
-git git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/dotfiles/.zsh/zsh-autosuggestions
-git git clone https://github.com/zsh-users/zsh-users/zsh-completions.git ~/dotfiles/.zsh/zsh-users/zsh-completions
-git git clone https://github.com/zsh-users/zsh-history-substring-search.git ~/dotfiles/.zsh/zsh-history-substring-search
-git git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/dotfiles/.zsh/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/dotfiles/.zsh/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-completions.git ~/dotfiles/.zsh/zsh-completions
+git clone https://github.com/zsh-users/zsh-history-substring-search.git ~/dotfiles/.zsh/zsh-history-substring-search
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/dotfiles/.zsh/zsh-syntax-highlighting
 ```
 
 then use Stow to create symlinks

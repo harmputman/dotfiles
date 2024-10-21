@@ -1,6 +1,6 @@
 eval "$(starship init zsh)"
 
-fpath+=~/.zsh/plugins/zsh-completions/src
+fpath+=~/.zsh/zsh-completions/src
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -11,3 +11,4 @@ autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 export PATH="$PATH:$HOME/.composer/vendor/bin"
+export PATH="$PATH:$HOME/.local/share"
