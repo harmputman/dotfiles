@@ -13,4 +13,5 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 export PATH="$PATH:$HOME/.local/share"
 
-alias ls='ls --color=auto'
+alias lg='lazygit'
+alias ls='eza --icons --git'
