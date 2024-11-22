@@ -11,6 +11,7 @@ Ensure you have the following installed on your system
 - [Git](https://git-scm.com/)
 - [Stow](https://www.gnu.org/software/stow/)
 - [Lazygit](https://github.com/jesseduffield/lazygit/)
+- [FZF](https://github.com/junegunn/fzf)
 - [Eza](https://github.com/eza-community/eza/)
 
 ## Installation

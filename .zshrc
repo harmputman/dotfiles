@@ -10,6 +10,15 @@ autoload -Uz compinit && compinit
 # fuzzy case insensitive path-completion
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
+# bash
+eval "$(fzf --bash)"
+
+# zsh
+source <(fzf --zsh)
+
+# fish
+fzf --fish | source
+
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 export PATH="$PATH:$HOME/.local/share"
 
