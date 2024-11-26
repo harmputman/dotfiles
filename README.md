@@ -13,6 +13,7 @@ Ensure you have the following installed on your system
 - [Lazygit](https://github.com/jesseduffield/lazygit/)
 - [FZF](https://github.com/junegunn/fzf)
 - [Eza](https://github.com/eza-community/eza/)
+- [The Fuck](https://github.com/nvbn/thefuck)
 
 ## Installation
 

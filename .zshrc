@@ -16,11 +16,10 @@ eval "$(fzf --bash)"
 # zsh
 source <(fzf --zsh)
 
-# fish
-fzf --fish | source
-
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 export PATH="$PATH:$HOME/.local/share"
 
 alias lg='lazygit'
 alias ls='eza --icons --git'
+
+eval $(thefuck --alias)
