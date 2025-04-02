@@ -18,5 +18,6 @@ export PATH="$PATH:$HOME/.local/share"
 
 alias lg='lazygit'
 alias ls='eza --icons --git'
+alias cat='bat'
 
 eval $(thefuck --alias)

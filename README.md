@@ -13,11 +13,14 @@ Ensure you have the following installed on your system
 - [Lazygit](https://github.com/jesseduffield/lazygit/)
 - [FZF](https://github.com/junegunn/fzf)
 - [Eza](https://github.com/eza-community/eza/)
+- [Bat](https://github.com/sharkdp/bat)
 - [The Fuck](https://github.com/nvbn/thefuck)
+- [Ripgrep](https://github.com/BurntSushi/ripgrep)
+- [NeoVim](https://github.com/neovim/neovim)
 
 ## Installation
 
-First, check out the dotfiles repo in your $HOME directory using git
+First, check out the dotfiles repo in your `$HOME` directory using git
 
 ```bash
 git clone git@github.com/harmputman/dotfiles.git
