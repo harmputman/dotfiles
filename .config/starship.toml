@@ -10,6 +10,7 @@ $username\
 $hostname\
 $directory\
 $git_branch\
+$python\
 $git_status\
 $fill\
 $time\
@@ -104,7 +105,8 @@ disabled = true
 disabled = true
 
 [python]
-disabled = true
+format = ' via [${symbol}${pyenv_prefix}(${version})(\[$virtualenv\])]($style)'
+pyenv_version_name = true
 
 [nodejs]
 disabled = true

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+FILE=$1
+
+MESSAGE=$(cat $FILE)
+
+BASE=$(git rev-parse --abbrev-ref HEAD | grep -Eo '^[^\/]+')
+[[ $BASE == "feature" ]] && TYPE="feat" || TYPE="fix"
+[[ $BASE == "feature" ]] && GITMOJI=":sparkles:" || GITMOJI=":bug:"
+
+JIRA=$(git rev-parse --abbrev-ref HEAD | grep -Eo '[^-\/]+-[0-9]+' | tr "[:lower:]" "[:upper:]")
+
+if [[ $JIRA == "" || $TYPE == "" || $GITMOJI == "" ]];then
+  exit 0;
+fi
+
+echo "${TYPE}[${JIRA}]: ${GITMOJI} ${MESSAGE}" > $FILE
