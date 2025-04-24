@@ -1,17 +1,69 @@
 #!/bin/bash
 
+# This script is intended to be used as a Git commit-msg hook.
+# It automatically prefixes commit messages based on the current branch name using gitmoji specifications.
+# https://gitmoji.dev/specification
+#
+# Template: <intention> [scope?][:?] <message>
+# - intention: a gitmoje, defaulting to '🐛' for bugfix branches, otherwise '✨'.
+# - scope: Uppercase Jira issue code from branch name (e.g., PROJ-123). (optional)
+# - message: The original commit message content.
+
+# File containing the commit message (passed as the first argument to the hook)
 FILE=$1
 
-MESSAGE=$(cat $FILE)
+# Read the original commit message content
+[[ $FILE != "" ]] && MESSAGE=$(cat "$FILE") || MESSAGE=""
 
-BASE=$(git rev-parse --abbrev-ref HEAD | grep -Eo '^[^\/]+')
-[[ $BASE == "feature" ]] && TYPE="feat" || TYPE="fix"
-[[ $BASE == "feature" ]] && GITMOJI=":sparkles:" || GITMOJI=":bug:"
+# Pass the Bash string to osascript via an environment variable
+export __CHECK_STR="$MESSAGE"
 
-JIRA=$(git rev-parse --abbrev-ref HEAD | grep -Eo '[^-\/]+-[0-9]+' | tr "[:lower:]" "[:upper:]")
+# If the commit message already contains an emoji, exit without modification
+# Use osascript. It exits 0 if regex.test is true (emoji found), 1 otherwise.
+if osascript -l JavaScript -e 'ObjC.import("stdlib"); $.exit(/\p{Emoji}/u.test($.getenv("__CHECK_STR")) ? 0 : 1);' > /dev/null 2>&1; then
+    unset __CHECK_STR
+    exit 0;
+fi
 
-if [[ $JIRA == "" || $TYPE == "" || $GITMOJI == "" ]];then
+unset __CHECK_STR
+
+# Determine the commit intention based on the branch name prefix
+BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+
+if [[ -n "$BRANCH_NAME" ]] && [[ "$BRANCH_NAME" != "HEAD" ]]; then
+  # Extract the intention from the branch name
+  case $(echo "$BRANCH_NAME" | grep -Eo '^[^\/]+') in
+    "bugfix") INTENTION="🐛";;
+    "hotfix") INTENTION="🚑️";;
+    "release") INTENTION="🔖";;
+    "merge") INTENTION="🔀";;
+    *) INTENTION="✨";;
+  esac
+else
+  # Default intention if branch name is not available
+  INTENTION="✨"
+fi
+
+# Extract the Jira issue code (e.g., PROJ-123) using grep with extended regex (-E)
+# Then convert to uppercase using tr
+# The regex matches:
+# [^-\/]+ - One or more characters that are not a hyphen (-) or a forward slash (/) - this is the project key
+# -[0-9]+ - A hyphen (-) followed by one or more digits (0-9) - this is the issue number
+SCOPE=$(echo "$BRANCH_NAME" | grep -Eo '[^-\/]+-[0-9]+' | tr "[:lower:]" "[:upper:]")
+
+if [[ $INTENTION == "" ]]; then
   exit 0;
 fi
 
-echo "${TYPE}[${JIRA}]: ${GITMOJI} ${MESSAGE}" > $FILE
+# Construct the new commit message
+# The format is: <intention> [scope?][:?] <message>
+# The SCOPE is optional and is included only if it is not empty
+COMMIT_MSG="${INTENTION}${SCOPE:+ [${SCOPE}]:} ${MESSAGE}"
+
+# Overwrite the commit message file with the new, prefixed message
+if [[ $FILE != "" ]];
+then
+    echo "${COMMIT_MSG}" > "$FILE"
+else
+    echo "${COMMIT_MSG}"
+fi
