@@ -6,7 +6,7 @@ general.import = [
 ]
 
 [window]
-opacity = 0.85
+opacity = 0.95
 blur = true
 padding = { x = 10, y = 10 }
 dynamic_title = true
@@ -15,3 +15,6 @@ dynamic_title = true
 normal = { family = "JetBrainsMono Nerd Font", style = "ExtraLight" }
 bold = { style = "Medium" }
 size = 13
+
+[env]
+WINIT_X11_SCALE_FACTOR = "1.5"

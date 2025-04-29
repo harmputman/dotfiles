@@ -10,9 +10,6 @@ autoload -Uz compinit && compinit
 # fuzzy case insensitive path-completion
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
-# zsh
-source <(fzf --zsh)
-
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 export PATH="$PATH:$HOME/.local/share"
 
@@ -21,3 +18,5 @@ alias ls='eza --icons --git'
 alias cat='bat'
 
 eval $(thefuck --alias)
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

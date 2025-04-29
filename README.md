@@ -11,7 +11,7 @@ Ensure you have the following installed on your system
 - [Git](https://git-scm.com/)
 - [Stow](https://www.gnu.org/software/stow/)
 - [Lazygit](https://github.com/jesseduffield/lazygit/)
-- [FZF](https://github.com/junegunn/fzf)
+- [FZF](https://www.linode.com/docs/guides/how-to-use-fzf/#how-to-install-fzf)
 - [Eza](https://github.com/eza-community/eza/)
 - [Bat](https://github.com/sharkdp/bat)
 - [The Fuck](https://github.com/nvbn/thefuck)
