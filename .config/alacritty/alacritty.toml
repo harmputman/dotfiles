@@ -2,7 +2,7 @@ general.live_config_reload = true
 
 # Dracula theme
 general.import = [
-    "~/.config/alacritty/themes/dracula.toml"
+    '~/.config/alacritty/themes/dracula.toml'
 ]
 
 [window]
@@ -12,9 +12,14 @@ padding = { x = 10, y = 10 }
 dynamic_title = true
 
 [font]
-normal = { family = "JetBrainsMono Nerd Font", style = "ExtraLight" }
-bold = { style = "Medium" }
 size = 13
 
+[font.normal]
+family = 'JetBrainsMono Nerd Font'
+style = 'Normal'
+
+[font.bold]
+style = 'Bold'
+
 [env]
-WINIT_X11_SCALE_FACTOR = "1.5"
+WINIT_X11_SCALE_FACTOR = '1.5'
