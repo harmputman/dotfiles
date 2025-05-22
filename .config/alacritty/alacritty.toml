@@ -16,10 +16,10 @@ size = 13
 
 [font.normal]
 family = 'JetBrainsMono Nerd Font'
-style = 'Normal'
+style = 'ExtraLight'
 
 [font.bold]
-style = 'Bold'
+style = 'Medium'
 
 [env]
 WINIT_X11_SCALE_FACTOR = '1.5'
