@@ -2,7 +2,7 @@ general.live_config_reload = true
 
 # Dracula theme
 general.import = [
-    '~/.config/alacritty/themes/dracula.toml'
+    '~/.config/alacritty/themes/catppuccin-mocha.toml'
 ]
 
 [window]
