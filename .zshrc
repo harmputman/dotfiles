@@ -17,6 +17,8 @@ alias lg='lazygit'
 alias ls='eza --icons --git'
 alias cat='bat'
 
+export OPENCODE_CONFIG="$HOME/.config/custom/opencode.json"
+
 eval $(thefuck --alias)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
