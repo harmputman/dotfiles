@@ -1,5 +1,11 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "theme": "catppuccin",
-  "default_agent": "portaal-back-end"
+  "default_agent": "portaal-back-end",
+  "mcp": {
+      "editor-mcp": {
+          "type": "remote",
+          "url": "http://127.0.0.1:29175/index-mcp/sse",
+          "enabled": true
+      }
+  }
 }
